@@ -24,6 +24,11 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1975911162-0
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-580431185-0
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-832575517-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1343243967-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-211814089-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-208106689-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-835923959-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1226420064-0
         values:
         - colorIndex: 8
           iconNameOrGuid: Camera Icon
@@ -47,6 +52,26 @@ MonoBehaviour:
           isColorRecursive: 1
         - colorIndex: 0
           iconNameOrGuid: Main Light Gizmo
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 1
+          isColorRecursive: 1
+        - colorIndex: 4
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 1
+        - colorIndex: 2
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 1
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Light Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []
