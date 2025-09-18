@@ -1,0 +1,36 @@
+root = true
+
+# General settings
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = crlf
+charset = utf-8-bom
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# C# formatting and style
+[*.cs]
+# Mapped from: AllowShortBlocksOnASingleLine: Always
+csharp_preserve_single_line_blocks = true
+# Mapped from: AllowShortFunctionsOnASingleLine: All
+csharp_preserve_single_line_statements = true
+
+# Mapped from: SpaceAfterCStyleCast: false
+csharp_space_after_cast = false
+
+# Closest equivalents for switch/case layout
+# (clang-format AllowShortCaseLabelsOnASingleLine: false)
+csharp_new_line_before_open_brace = all
+csharp_indent_switch_labels = true
+csharp_indent_case_contents = true
+
+# Helpful using-directive organization
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = true
+
+# Notes on unsupported mappings in C#
+# - AlignArrayOfStructures: Right -> no C# equivalent
+# - PointerAlignment: Left -> no Roslyn formatter option for pointer asterisk alignment
+
+
