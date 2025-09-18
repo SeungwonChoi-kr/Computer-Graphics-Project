@@ -85,14 +85,3 @@ Member: ê¹€ë¯¼ì¤€, ê¹€ì°¬ì˜, ë°•ì„¸ì›…, ìµœìŠ¹ì›
 | ì•„íŠ¸ | ë°•ì„¸ì›… | @sewoong02 |
 | ì•„íŠ¸ | ìµœìŠ¹ì› | @SeungwonChoi-kr |
 | í”„ë¡œê·¸ë˜ë° | ëª¨ë‘ | @all |
-
-# »ç¿ë ¾È³»
-## ¿­±â
-- Unity Hub  Open  D:\SeungwonChoi-kr\dev\My-Career-is-Buried
-
-## ½ÇÇà
-- Assets/Scenes/Main.unity ¿­±â  Play
-
-## ºôµå
-- Build SettingsÀÇ Scene List¿¡ Main.unity Æ÷ÇÔ È®ÀÎ
-- Platform ¼±ÅÃ ÈÄ Build
