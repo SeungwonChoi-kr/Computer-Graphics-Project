@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8e5b0e62e596e2743aa1790e88b85fc2
+timeCreated: 1504722288
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 99479
+  packageName: LowPoly Environment Pack
+  packageVersion: 1.0
+  assetPath: Assets/LowPoly Environment Pack/Demo/Scene 2/PPS Demo 2.asset
+  uploadId: 200756
