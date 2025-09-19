@@ -82,6 +82,7 @@ MonoBehaviour:
   - builtinIcons: []
     customIcons:
     - Main Light Gizmo
+    - Cloth Icon
     enabled: 1
   - builtinIcons: []
     customIcons: []
