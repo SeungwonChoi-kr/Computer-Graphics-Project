@@ -83,6 +83,10 @@ MonoBehaviour:
     customIcons:
     - Main Light Gizmo
     - Cloth Icon
+    - ToolHandleGlobal
+    - CapsuleCollider2D Icon
+    - Profiler.UI
+    - BuildSettings.SceneList
     enabled: 1
   - builtinIcons: []
     customIcons: []

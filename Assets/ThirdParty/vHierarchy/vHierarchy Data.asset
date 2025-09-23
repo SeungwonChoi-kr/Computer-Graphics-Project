@@ -35,6 +35,10 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-53434961-0
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1620324348-0
         - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-952688855-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-1156335820-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-126550830-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-802675031-0
+        - globalObjectIdString: GlobalObjectId_V1-2-99c9720ab356a0642a771bea13969a05-2126690153-0
         values:
         - colorIndex: 8
           iconNameOrGuid: Camera Icon
@@ -64,20 +68,20 @@ MonoBehaviour:
           iconNameOrGuid: Folder Icon
           isIconRecursive: 1
           isColorRecursive: 1
-        - colorIndex: 4
-          iconNameOrGuid: Folder Icon
+        - colorIndex: 9
+          iconNameOrGuid: Profiler.UI
           isIconRecursive: 0
           isColorRecursive: 1
-        - colorIndex: 2
+        - colorIndex: 0
           iconNameOrGuid: Folder Icon
           isIconRecursive: 0
-          isColorRecursive: 1
+          isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: Camera Icon
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0
-          iconNameOrGuid: Light Icon
+          iconNameOrGuid: DirectionalLight Icon
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0
@@ -89,15 +93,31 @@ MonoBehaviour:
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 0
-          iconNameOrGuid: Cloth Icon
-          isIconRecursive: 0
-          isColorRecursive: 0
-        - colorIndex: 0
           iconNameOrGuid: AvatarMask On Icon
           isIconRecursive: 0
           isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: CapsuleCollider2D Icon
+          isIconRecursive: 0
+          isColorRecursive: 1
         - colorIndex: 8
           iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 1
+        - colorIndex: 4
+          iconNameOrGuid: BuildSettings.SceneList
+          isIconRecursive: 0
+          isColorRecursive: 1
+        - colorIndex: 2
+          iconNameOrGuid: AudioSource Icon
+          isIconRecursive: 0
+          isColorRecursive: 1
+        - colorIndex: 3
+          iconNameOrGuid: Light Icon
+          isIconRecursive: 0
+          isColorRecursive: 1
+        - colorIndex: 5
+          iconNameOrGuid: ToolHandleGlobal
           isIconRecursive: 0
           isColorRecursive: 1
     - goDatas_byGlobalId:
