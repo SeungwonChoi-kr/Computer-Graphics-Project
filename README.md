@@ -3,13 +3,8 @@
 
 Member: 김민준, 김찬영, 박세웅, 최승원
 
-# 🎮 [프로젝트 이름]
-
-<p align="center">
-  <img src="[이미지 주소]" width="600">
-</p>
-
-> [게임 소개 문구]
+# 🎮 [게임 이름] Radiant Relics
+> [게임 스토리]
 
 
 <br>
@@ -27,12 +22,12 @@ Member: 김민준, 김찬영, 박세웅, 최승원
 |---|---|
 | **Unity Engine** | **6000.2.4f1 LTS** |
 | **IDE** | Visual Studio 2022 |
-| **Target Platform** | Windows / macOS |
+| **Target Platform** | Windows |
 
 
 <br>
 
-## 🚀 시작 가이드 (팀원 필독!)
+## 🚀 시작 가이드
 
 이 프로젝트를 로컬 컴퓨터에 설정하는 방법입니다.
 
