@@ -45,7 +45,7 @@ Member: 김민준, 김찬영, 박세웅, 최승원
 
 | Category | Version |
 |---|---|
-| **Unity Engine** | **6000.2.4f1 LTS** |
+| **Unity Engine** | **6000.2.5f1 LTS** |
 | **IDE** | Visual Studio 2022 |
 | **Target Platform** | Windows |
 
