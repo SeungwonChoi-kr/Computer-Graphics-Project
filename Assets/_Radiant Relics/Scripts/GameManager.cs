@@ -8,7 +8,33 @@ public class GameManager : MonoBehaviour
     
     [Header("플레이어 설정")]
     [Tooltip("플레이어 이동 속도")]
-    public float playerSpeed = 2.0f;
+    public float playerSpeed = 8.5f;
+    
+    [Tooltip("달리기 속도 배율 (기본 이동 속도의 몇 배)")]
+    [Range(1.0f, 5.0f)]
+    public float runSpeedMultiplier = 1.3f;
+    
+    [Tooltip("바닥 마찰력 (높을수록 방향 전환이 빠름)")]
+    [Range(0.1f, 20.0f)]
+    public float groundFriction = 8.0f;
+    
+    [Tooltip("공중 제어력 (낮을수록 관성 유지, 높을수록 제어 가능)")]
+    [Range(0.0f, 2.0f)]
+    public float playerAirControl = 0.3f;
+    
+    [Tooltip("공중 저항 (낮을수록 관성 유지, 높을수록 빠르게 멈춤)")]
+    [Range(0.0f, 1.0f)]
+    public float playerAirDrag = 0.1f;
+    
+    [Tooltip("물 속도 감소 배율 (0.5 = 절반 속도)")]
+    [Range(0.1f, 1.0f)]
+    public float waterSpeedMultiplier = 0.5f;
+    
+    [Tooltip("물 레이어 번호")]
+    public int waterLayer = 4; // "Water" 레이어
+    
+    [Tooltip("터레인 위에서의 추가 높이 오프셋")]
+    public float playerTerrainHeightOffset = 1.0f;
     
     [Tooltip("점프 높이")]
     public float jumpHeight = 1.0f;
@@ -116,6 +142,41 @@ public class GameManager : MonoBehaviour
     public void SetPlayerSpeed(float value)
     {
         playerSpeed = Mathf.Clamp(value, 0.1f, 10.0f);
+    }
+    
+    public void SetRunSpeedMultiplier(float value)
+    {
+        runSpeedMultiplier = Mathf.Clamp(value, 1.0f, 5.0f);
+    }
+    
+    public void SetGroundFriction(float value)
+    {
+        groundFriction = Mathf.Clamp(value, 0.1f, 20.0f);
+    }
+    
+    public void SetAirControl(float value)
+    {
+        playerAirControl = Mathf.Clamp(value, 0.0f, 2.0f);
+    }
+    
+    public void SetAirDrag(float value)
+    {
+        playerAirDrag = Mathf.Clamp(value, 0.0f, 1.0f);
+    }
+    
+    public void SetWaterSpeedMultiplier(float value)
+    {
+        waterSpeedMultiplier = Mathf.Clamp(value, 0.1f, 1.0f);
+    }
+    
+    public void SetWaterLayer(int layer)
+    {
+        waterLayer = layer;
+    }
+    
+    public void SetPlayerTerrainHeightOffset(float offset)
+    {
+        playerTerrainHeightOffset = offset;
     }
     
     public void SetTimeScale(float value)
