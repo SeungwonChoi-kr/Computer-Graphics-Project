@@ -87,6 +87,7 @@ MonoBehaviour:
     - CapsuleCollider2D Icon
     - Profiler.UI
     - BuildSettings.SceneList
+    - ParticleSystem Icon
     enabled: 1
   - builtinIcons: []
     customIcons: []
