@@ -1,7 +1,5 @@
-# Computer-Graphics-Project
-## DKU. 2025 Computer Graphics(CE) project
-
-Member: 김민준, 김찬영, 박세웅, 최승원
+# DKU. 2025 Computer Graphics(CE) project
+## Member: 김민준, 김찬영, 박세웅, 최승원
 <br>
 
 # 🎮 [게임 이름] Radiant Relics
