@@ -1,39 +1,38 @@
 ﻿using UnityEngine;
 using System.Linq;
 
-// 이 스크립트는 CharacterController 컴포넌트가 있어야만 작동합니다.
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
     private Camera playerCamera;
 
-    // [수정됨] 이동 관련 변수들을 통합하고 단순화했습니다.
+    // 이동 관련 변수들을 통합하고 단순화했습니다.
     private Vector3 playerVelocity;       // Y축 속도 (중력, 점프)를 관리합니다.
     private Vector3 horizontalVelocity;   // X, Z축 속도 (좌우, 앞뒤)를 관리합니다.
 
     private bool groundedPlayer;
     private bool wasGroundedLastFrame;
 
-    // [개선됨] 착지 후 부드러운 전환을 위한 변수
+    // 착지 후 부드러운 전환을 위한 변수
     private float landingGracePeriod = 0.2f; // 착지 후 급격한 방향 전환을 막는 시간
     private float landingTimer = 0f;
     
-    // [신규] 달리기 관련 변수
+    // 달리기 관련 변수
     [Header("달리기 설정")]
     [Tooltip("달리기 기능 활성화 여부")]
     public bool enableRun = true;
     
     private bool isRunning = false;
     
-    // [신규] 물 관련 변수
+    // 물 관련 변수
     [Header("물 설정")]
     [Tooltip("물 레이어 번호")]
     public int waterLayer = 4; // "Water" 레이어
     
     private bool isInWater = false;
     
-    // [신규] 시작 위치 설정 변수
+    // 시작 위치 설정 변수
     [Header("시작 위치 설정")]
     [Tooltip("시작 위치를 사용할지 여부")]
     public bool useCustomStartPosition = true;
@@ -43,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
         playerCamera = Camera.main;
 
-        // [신규] 시작 위치 설정
+        // 시작 위치 설정
         if (useCustomStartPosition)
         {
             // 현재 Transform의 X, Z 위치를 사용하고 Y만 터레인 높이에 맞춰 보정
@@ -54,9 +53,6 @@ public class PlayerMovement : MonoBehaviour
             Vector3 spawnPosition = GetTerrainAdjustedPosition(currentXZ, heightOffset);
             SetPlayerPosition(spawnPosition);
         }
-
-        // Start 로직의 다른 부분들은 문제가 없으므로 그대로 둡니다.
-        // ... 기존 Start()의 Debug.Log 및 기타 설정 ...
     }
 
     void Update()
@@ -79,18 +75,18 @@ public class PlayerMovement : MonoBehaviour
         // 4. 중력 적용
         ApplyGravity();
 
-        // [개선됨] 달리기 상태 및 물 상태 포함 디버그 로그
-        string speedInfo = isRunning ? " (달리기)" : " (걷기)";
-        string waterInfo = isInWater ? " [물속]" : "";
-        Debug.Log("최종 수평 속도: " + horizontalVelocity.magnitude + speedInfo + waterInfo);
+        // 달리기 상태 및 물 상태 포함 디버그 로그
+        //string speedInfo = isRunning ? " (달리기)" : " (걷기)";
+        //string waterInfo = isInWater ? " [물속]" : "";
+        //Debug.Log("최종 수평 속도: " + horizontalVelocity.magnitude + speedInfo + waterInfo);
 
-        // 5. 최종 이동 적용 [가장 중요한 수정!]
+        // 5. 최종 이동 적용
         // 수평 이동과 수직 이동을 합쳐서 한 번만 Move()를 호출합니다.
         Vector3 finalMove = (horizontalVelocity + playerVelocity) * Time.deltaTime;
         controller.Move(finalMove);
     }
 
-    // [신규] 착지 시 로직을 처리하는 함수
+    // 착지 시 로직을 처리하는 함수
     private void HandleLanding()
     {
         // 막 착지한 순간이라면
@@ -111,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // [개선됨] 이동 입력을 처리하는 함수
+    // 이동 입력을 처리하는 함수
     private void HandleMovementInput()
     {
         // WASD 입력 받기
@@ -125,20 +121,20 @@ public class PlayerMovement : MonoBehaviour
                 float cameraYRotation = playerCamera.transform.eulerAngles.y;
                 Vector3 targetDirection = Quaternion.Euler(0f, cameraYRotation, 0f) * moveInput;
                 
-                // [신규] 달리기 속도 적용
+                // 달리기 속도 적용
                 float currentSpeed = GameManager.Instance.playerSpeed;
                 if (isRunning)
                 {
                     currentSpeed *= GameManager.Instance.runSpeedMultiplier;
                 }
                 
-                // [신규] 물 속도 감소 적용
+                // 물 속도 감소 적용
                 if (isInWater)
                 {
                     currentSpeed *= GameManager.Instance.waterSpeedMultiplier;
                 }
                 
-                // [신규] 바닥 마찰력을 적용한 부드러운 방향 전환
+                // 바닥 마찰력을 적용한 부드러운 방향 전환
                 Vector3 targetVelocity = targetDirection.normalized * currentSpeed;
                 float friction = GameManager.Instance.groundFriction * Time.deltaTime;
                 horizontalVelocity = Vector3.Lerp(horizontalVelocity, targetVelocity, friction);
@@ -172,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // [신규] 물 상태를 확인하는 함수 (보이지 않는 육면체 영역 기반)
+    // 물 상태를 확인하는 함수 (보이지 않는 육면체 영역 기반)
     private void CheckWaterStatus()
     {
         // 보이지 않는 물 영역 오브젝트들을 찾아서 감지
@@ -192,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
                     if (collider.bounds.Contains(transform.position))
                     {
                         isInWater = true;
-                        Debug.Log($"물 영역 감지됨: {obj.name}");
+                        // Debug.Log($"물 영역 감지됨: {obj.name}");
                         break;
                     }
                 }
@@ -200,27 +196,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
-    // [신규] 물 영역에 들어갔을 때 호출 (Collider 기반)
+    // 물 영역에 들어갔을 때 호출 (Collider 기반)
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name.ToLower().Contains("waterzone"))
         {
             isInWater = true;
-            Debug.Log($"물 영역에 들어감: {other.gameObject.name}");
+            // Debug.Log($"물 영역에 들어감: {other.gameObject.name}");
         }
     }
     
-    // [신규] 물 영역에서 나왔을 때 호출 (Collider 기반)
+    // 물 영역에서 나왔을 때 호출 (Collider 기반)
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name.ToLower().Contains("waterzone"))
         {
             isInWater = false;
-            Debug.Log($"물 영역에서 나옴: {other.gameObject.name}");
+            // Debug.Log($"물 영역에서 나옴: {other.gameObject.name}");
         }
     }
     
-    // [신규] 달리기 입력을 처리하는 함수
+    // 달리기 입력을 처리하는 함수
     private void HandleRunInput()
     {
         if (!enableRun) return;
@@ -232,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
         isRunning = isPressingW && isPressingShift && groundedPlayer;
     }
     
-    // [개선됨] 점프 입력을 처리하는 함수
+    // 점프 입력을 처리하는 함수
     private void HandleJumpInput()
     {
         if (Input.GetButtonDown("Jump") && groundedPlayer)
@@ -243,7 +239,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
-    // [신규] 중력을 적용하는 함수
+    // 중력을 적용하는 함수
     private void ApplyGravity()
     {
         // 땅에 있고, 아래로 떨어지는 중이 아니라면 중력 누적 방지
@@ -256,7 +252,7 @@ public class PlayerMovement : MonoBehaviour
         playerVelocity.y += GameManager.Instance.gravityValue * Time.deltaTime;
     }
     
-    // [신규] 플레이어 위치를 설정하는 메서드
+    // 플레이어 위치를 설정하는 메서드
     public void SetPlayerPosition(Vector3 newPosition)
     {
         // CharacterController를 비활성화하여 위치 변경 가능하게 함
@@ -271,7 +267,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log($"플레이어 위치가 {newPosition}로 설정되었습니다.");
     }
     
-    // [신규] 터레인 높이를 고려한 위치 계산
+    // 터레인 높이를 고려한 위치 계산
     private Vector3 GetTerrainAdjustedPosition(Vector2 xzPosition, float heightOffset = -1f)
     {
         float offset = heightOffset >= 0 ? heightOffset : GameManager.Instance.playerTerrainHeightOffset;
@@ -279,7 +275,7 @@ public class PlayerMovement : MonoBehaviour
         return new Vector3(xzPosition.x, terrainHeight + offset, xzPosition.y);
     }
     
-    // [신규] 특정 X, Z 좌표에서의 터레인 높이를 가져오는 메서드
+    // 특정 X, Z 좌표에서의 터레인 높이를 가져오는 메서드
     private float GetTerrainHeight(float x, float z)
     {
         // 씬의 모든 터레인을 찾아서 높이를 계산
@@ -336,7 +332,7 @@ public class PlayerMovement : MonoBehaviour
         return maxHeight;
     }
     
-    // [신규] 현재 위치를 터레인 높이에 맞춰 보정하는 메서드
+    // 현재 위치를 터레인 높이에 맞춰 보정하는 메서드
     public void AdjustToTerrainHeight()
     {
         Vector2 currentXZ = new Vector2(transform.position.x, transform.position.z);
