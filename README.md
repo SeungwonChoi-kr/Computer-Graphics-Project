@@ -78,6 +78,7 @@
 - `develop`: 개발의 중심이 되는 브랜치입니다. 기능 개발이 완료되면 `develop`으로 Pull Request를 보냅니다.
 - `feature/[기능이름]`: 새로운 기능을 개발할 때 사용하는 브랜치입니다. (예: `feature/player-movement`)
 - `bugfix/[버그이름]`: 버그를 수정할 때 사용하는 브랜치입니다. (예: `fix/login-error`)
+- `refactor/[수정내용]`: 코드 가독성, 로직 개편을 할 때 사용하는 브랜치입니다. (예: `refactor/player-movement`)
 
 #### 💬 Commit 메시지 규칙
 
